@@ -4,12 +4,15 @@ import fetch from "node-fetch";
 
 const app = express();
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBQqjx5fy5b1bysvBlPUWpYCgvlU4QZ7A8",
+  authDomain: "upg-chat-9643e.firebaseapp.com",
+  projectId: "upg-chat-9643e",
+  appId: "1:1070897730361:web:fb1ed3f8bbd642cd170ee8"
+};
+
 // CORS sozlamalari - hamma narsaga ruxsat
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+
 
 app.use(express.json());
 
@@ -30,7 +33,14 @@ app.get("/", (req, res) => {
     }
   });
 });
-
+app.use(cors({
+  origin: [
+    "https://ubiquitous-profiterole-1bea12.netlify.app",
+    "http://localhost:5500",
+    "http://127.0.0.1:5500"
+  ],
+  credentials: true
+}));
 // 2. TEST ENDPOINT (GET) - oddiy matn qaytaradi
 app.get("/test", (req, res) => {
   res.send("✅ Server ishlayapti! Test endpoint ishladi.");
@@ -100,13 +110,14 @@ app.post("/chat", async (req, res) => {
 });
 
 // 5. 404 handler - topilmagan endpointlar uchun
-app.use("*", (req, res) => {
-  res.status(404).json({
-    error: "Not Found",
-    message: "So'ralgan endpoint topilmadi",
-    available: ["GET /", "GET /test", "GET /health", "POST /chat"]
-  });
-});
+app.use(cors({
+  origin: [
+    "https://ubiquitous-profiterole-1bea12.netlify.app",
+    "http://localhost:5500",
+    "http://127.0.0.1:5500"
+  ],
+  credentials: true
+}));
 
 // ==================== SERVERNI ISHGA TUSHIRISH ====================
 
