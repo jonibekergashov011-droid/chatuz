@@ -9,7 +9,7 @@ import {
 
 // ==================== FIREBASE SOZLAMALARI ====================
 const firebaseConfig = {
-  apiKey: "AIzaSyDslPvFB_6oKx55nOy-6YcZGy3wJj-b4ho",
+  apiKey: "BEh0j6dG1C7jzEX9emcfJkRWJMVxEhOAh5D7JqRKAj9pQIPxMpMr9h9_QpEdLls7Vq8-aaP01zNWz1Trn3F87rE",  // BU TO'G'RI
   authDomain: "habarim-64231.firebaseapp.com",
   projectId: "habarim-64231",
   appId: "1:65930868923:web:ac4baa99965bb18592519e"
